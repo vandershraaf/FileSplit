@@ -93,16 +93,26 @@ public class FileSplit {
 
 
     public static void main(String[] args){
-
-        // Prompts
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter full input folder path : ");
-        String inputFolder = scanner.nextLine();
-        System.out.println("Enter full output folder path : ");
-        String outputFolder = scanner.nextLine();
-        System.out.println("Enter split size (in MB) : ");
-        Integer splitSize = Integer.valueOf(scanner.nextLine());
-
+        String inputFolder = null;
+        String outputFolder = null;
+        Integer splitSize = null;
+        System.out.println("=== FileSplit Tool ===");
+        System.out.println("Simple Java-based tool for splitting large files and preserving the containing folder structure.");
+        if (args.length == 0){
+            System.out.println("** Manual Mode **");
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter full input folder path : ");
+            inputFolder = scanner.nextLine();
+            System.out.println("Enter full output folder path : ");
+            outputFolder = scanner.nextLine();
+            System.out.println("Enter split size (in MB) : ");
+            splitSize = Integer.valueOf(scanner.nextLine());
+        } else {
+            System.out.println("** Auto Mode **");
+            inputFolder = args[0];
+            outputFolder = args[1];
+            splitSize = Integer.valueOf(args[2]);
+        }
         // Run the splitter
         FileSplit fileSplit = new FileSplit(inputFolder, outputFolder, splitSize, "MB");
         fileSplit.run();

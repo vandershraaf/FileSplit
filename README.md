@@ -62,12 +62,21 @@ Finally, you can perform further analysis on the files in the output folder (eit
 1. Make sure you have Java 1.8 and above installed in your machine. 
 2. Run the jar file in command prompt / terminal :
 
+You can either run the jar as it is:
+
 ``` 
 java -jar FileSplit.jar
 ```
 
-Then, specify the following items:
-1. Full path of input folder
-2. Full path of output folder 
-3. Split size (in MB)
+Or run it with the parameters
+
+``` 
+java -jar FileSplit.jar <input> <output> <split_size>
+```
+
+```<input>``` =  Full path of input folder
+
+```<output>``` = Full path of output folder 
+
+```<file_size>``` = </file_size> Split size (in MB)
 
